@@ -27,24 +27,61 @@ except (KeyError, StreamlitAPIException):
 
 st.title("🎙️ Transcripción de Audio con Diarización")
 
-# --- ESTILOS CSS FINOS ---
+# --- ESTILOS CSS DEFINITIVOS ---
 st.markdown("""    
 <style>
-/* El tema principal se define en .streamlit/config.toml */
+/* Paleta: Dominante #023047, Secundario #219ebc, Acento #ffb703, #fb8500 */
 
-/* Ajuste para que el texto del botón sea oscuro y legible sobre el fondo amarillo */
+/* FONDO */
+.stApp {
+    background-color: #023047 !important;
+}
+
+/* TEXTO Y TÍTULOS */
+h1, h2, h3, strong, label {
+    color: #FFFFFF !important;
+}
+.stFileUploader label {
+    color: #219ebc !important;
+    font-size: 1.2rem !important;
+}
+
+/* BOTONES Y ELEMENTOS INTERACTIVOS (ACCENTO) */
 .stButton>button, .stDownloadButton>a, .stFileUploader>div>button {
-    color: #023047 !important; /* Texto oscuro para contraste */
+    /* Estado normal: Amarillo */
+    background-color: #ffb703 !important;
+    color: #023047 !important; /* Texto oscuro */
+    border: 2px solid #ffb703 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    padding: 0.5rem 1rem !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+.stDownloadButton>a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Estilo del área de texto de la transcripción */
+.stButton>button:hover, .stDownloadButton>a:hover, .stFileUploader>div>button:hover {
+    /* Estado hover: Naranja */
+    background-color: #fb8500 !important;
+    color: #FFFFFF !important; /* Texto blanco */
+    border-color: #fb8500 !important;
+}
+
+/* ÁREA DE TEXTO DE TRANSCRIPCIÓN */
 .stTextArea textarea {
-    border: 1px solid #219ebc !important; /* Borde con color secundario */
+    background-color: #0A3F5B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #219ebc !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
 }
 
-/* Ocultar el menú de hamburguesa de Streamlit y el footer */
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
+/* OCULTAR ELEMENTOS DE STREAMLIT */
+#MainMenu, footer { visibility: hidden; }
 
 </style>
 """, unsafe_allow_html=True)
