@@ -26,13 +26,58 @@ except (KeyError, StreamlitAPIException):
 # --- INTERFAZ DE USUARIO ---
 
 st.title("🎙️ Transcripción de Audio con Diarización")
-st.markdown("""
-Sube un archivo de audio (`.opus`, `.m4a`, `.mp3`, `.wav`, etc.) y la aplicación lo transcribirá, 
-identificando quién está hablando.
 
-**Importante:** Para que esta aplicación funcione, necesitas configurar tu clave de API de AssemblyAI.
-Consulta el `README.md` para más detalles.
-""")
+# --- ESTILOS CSS MODERNOS (TEMA OSCURO) ---
+st.markdown("""    
+<style>
+/* Color de fondo principal */
+.stApp {
+    background-color: #0f172a; /* Azul noche */
+}
+
+/* Color y fuente del título principal */
+h1 {
+    color: #f8fafc; /* Blanco casi puro */
+    font-family: 'sans-serif';
+}
+
+/* Estilo de botones */
+.stButton>button {
+    color: #f8fafc; /* Texto blanco */
+    background-color: #2563eb; /* Azul vibrante */
+    border-radius: 8px;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.stButton>button:hover {
+    background-color: #1d4ed8; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Estilo del área de texto de la transcripción */
+.stTextArea textarea {
+    background-color: #1e293b; /* Azul-gris oscuro */
+    color: #e2e8f0; /* Gris claro */
+    border-radius: 8px;
+    border: 1px solid #334155;
+    font-size: 16px;
+}
+
+/* Estilo del file uploader */
+.stFileUploader label {
+    color: #cbd5e1; /* Gris azulado */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Ocultar el menú de hamburguesa de Streamlit y el footer */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+</style>
+""", unsafe_allow_html=True)
+
 
 # Comprobar si la clave de API está configurada
 if not aai.settings.api_key:
