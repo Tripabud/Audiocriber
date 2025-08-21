@@ -27,48 +27,49 @@ except (KeyError, StreamlitAPIException):
 
 st.title("🎙️ Transcripción de Audio con Diarización")
 
-# --- ESTILOS CSS MODERNOS (TEMA OSCURO) ---
+# --- ESTILOS CSS CON PALETA PERSONALIZADA ---
 st.markdown("""    
 <style>
-/* Color de fondo principal */
+/* Paleta: Dominante #023047, Secundario #219ebc, Acento #ffb703, #fb8500 */
+
+/* Color de fondo principal (60% Dominante) */
 .stApp {
-    background-color: #0f172a; /* Azul noche */
+    background-color: #023047;
 }
 
-/* Color y fuente del título principal */
-h1 {
-    color: #f8fafc; /* Blanco casi puro */
-    font-family: 'sans-serif';
+/* Color de texto principal (para legibilidad) */
+.stApp, .stApp h1, .stApp h2, .st.App h3 {
+    color: #FFFFFF; 
 }
 
-/* Estilo de botones */
+/* Títulos y etiquetas usan el color secundario (30% Secundario) */
+h1, h2, h3, .stFileUploader label, .uploadedFileName {
+    color: #219ebc !important;
+}
+
+/* Estilo de botones (10% Acento) */
 .stButton>button {
-    color: #f8fafc; /* Texto blanco */
-    background-color: #2563eb; /* Azul vibrante */
+    color: #023047; /* Texto oscuro para contraste */
+    background-color: #ffb703; /* Acento: Amarillo */
     border-radius: 8px;
-    border: none;
+    border: 2px solid #ffb703;
     padding: 12px 24px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 .stButton>button:hover {
-    background-color: #1d4ed8; /* Azul más oscuro al pasar el mouse */
+    background-color: #fb8500; /* Acento secundario: Naranja */
+    border-color: #fb8500;
+    color: #FFFFFF;
 }
 
 /* Estilo del área de texto de la transcripción */
 .stTextArea textarea {
-    background-color: #1e293b; /* Azul-gris oscuro */
-    color: #e2e8f0; /* Gris claro */
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para destacar del principal */
+    color: #FFFFFF;
     border-radius: 8px;
-    border: 1px solid #334155;
+    border: 1px solid #219ebc; /* Borde con color secundario */
     font-size: 16px;
-}
-
-/* Estilo del file uploader */
-.stFileUploader label {
-    color: #cbd5e1; /* Gris azulado */
-    font-size: 18px;
-    font-weight: bold;
 }
 
 /* Ocultar el menú de hamburguesa de Streamlit y el footer */
