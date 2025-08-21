@@ -27,7 +27,7 @@ except (KeyError, StreamlitAPIException):
 
 st.title("🎙️ Transcripción de Audio con Diarización")
 
-# --- ESTILOS CSS CON PALETA PERSONALIZADA ---
+# --- ESTILOS CSS CON PALETA PERSONALIZADA (CORREGIDO) ---
 st.markdown("""    
 <style>
 /* Paleta: Dominante #023047, Secundario #219ebc, Acento #ffb703, #fb8500 */
@@ -39,7 +39,7 @@ st.markdown("""
 
 /* Color de texto principal (para legibilidad) */
 .stApp, .stApp h1, .stApp h2, .st.App h3 {
-    color: #FFFFFF; 
+    color: #FFFFFF !important;
 }
 
 /* Títulos y etiquetas usan el color secundario (30% Secundario) */
@@ -47,29 +47,34 @@ h1, h2, h3, .stFileUploader label, .uploadedFileName {
     color: #219ebc !important;
 }
 
-/* Estilo de botones (10% Acento) */
-.stButton>button {
-    color: #023047; /* Texto oscuro para contraste */
-    background-color: #ffb703; /* Acento: Amarillo */
-    border-radius: 8px;
-    border: 2px solid #ffb703;
-    padding: 12px 24px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-.stButton>button:hover {
-    background-color: #fb8500; /* Acento secundario: Naranja */
-    border-color: #fb8500;
-    color: #FFFFFF;
+/* Estilo de TODOS los botones y links-como-botones (10% Acento) */
+.stButton>button, .stDownloadButton>a, .stFileUploader>div>button {
+    color: #023047 !important; /* Texto oscuro para contraste */
+    background-color: #ffb703 !important; /* Acento: Amarillo */
+    border-radius: 8px !important;
+    border: 2px solid #ffb703 !important;
+    padding: 12px 24px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important; /* Para el botón de descarga que es un link */
+    display: inline-flex !important; /* Alineación correcta */
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-/* Estilo del área de texto de la transcripción */
+.stButton>button:hover, .stDownloadButton>a:hover, .stFileUploader>div>button:hover {
+    background-color: #fb8500 !important; /* Acento secundario: Naranja */
+    border-color: #fb8500 !important;
+    color: #FFFFFF !important;
+}
+
+/* Estilo del área de texto de la transcripción (CORREGIDO) */
 .stTextArea textarea {
-    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para destacar del principal */
-    color: #FFFFFF;
-    border-radius: 8px;
-    border: 1px solid #219ebc; /* Borde con color secundario */
-    font-size: 16px;
+    background-color: #0A3F5B !important; /* Un tono ligeramente más claro que el fondo */
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    border: 1px solid #219ebc !important; /* Borde con color secundario */
+    font-size: 16px !important;
 }
 
 /* Ocultar el menú de hamburguesa de Streamlit y el footer */
