@@ -8,7 +8,69 @@ from pydub import AudioSegment
 # --- CONFIGURACIÓN INICIAL ---
 
 # Título de la página y favicon
-st.set_page_config(page_title="Transcripción de Audio", page_icon="🎙️")
+st.set_page_config(page_title="Transcripción de Audio", page_icon="🎙️", layout="centered")
+
+# --- ESTILOS CSS DEFINITIVOS ---
+st.markdown("""    
+<style>
+/* Paleta: Dominante #023047, Secundario #219ebc, Acento #ffb703, #fb8500 */
+
+/* FONDO */
+.stApp {
+    background-color: #023047 !important;
+}
+
+/* TEXTO Y TÍTULOS */
+h1, h2, h3, p, label, .stMarkdown {
+    color: #FFFFFF !important;
+}
+.stFileUploader label {
+    color: #219ebc !important;
+}
+
+/* ÁREA DE TEXTO */
+.stTextArea textarea {
+    background-color: #0A3F5B !important;
+    color: #FFFFFF !important;
+    border: 1px solid #219ebc !important;
+    border-radius: 8px !important;
+}
+
+/* --- ESTILOS DE BOTONES (MÁXIMA ESPECIFICIDAD) --- */
+
+/* Selector para el botón de "Browse files" */
+div[data-testid="stFileUploader"] section button {
+    background-color: #ffb703 !important;
+    color: #023047 !important;
+    border: 2px solid #ffb703 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+div[data-testid="stFileUploader"] section button:hover {
+    background-color: #fb8500 !important;
+    color: #FFFFFF !important;
+    border-color: #fb8500 !important;
+}
+
+/* Selector para el botón de descarga */
+.stDownloadButton button {
+    background-color: #ffb703 !important;
+    color: #023047 !important;
+    border: 2px solid #ffb703 !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+}
+.stDownloadButton button:hover {
+    background-color: #fb8500 !important;
+    color: #FFFFFF !important;
+    border-color: #fb8500 !important;
+}
+
+/* OCULTAR MENÚ Y FOOTER */
+#MainMenu, footer { visibility: hidden; }
+
+</style>
+""", unsafe_allow_html=True)
 
 # Leer la clave de API desde los secretos de Streamlit o una variable de entorno
 # Es la forma más segura de manejar claves de API.
