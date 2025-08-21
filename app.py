@@ -27,54 +27,19 @@ except (KeyError, StreamlitAPIException):
 
 st.title("🎙️ Transcripción de Audio con Diarización")
 
-# --- ESTILOS CSS CON PALETA PERSONALIZADA (CORREGIDO) ---
+# --- ESTILOS CSS FINOS ---
 st.markdown("""    
 <style>
-/* Paleta: Dominante #023047, Secundario #219ebc, Acento #ffb703, #fb8500 */
+/* El tema principal se define en .streamlit/config.toml */
 
-/* Color de fondo principal (60% Dominante) */
-.stApp {
-    background-color: #023047;
-}
-
-/* Color de texto principal (para legibilidad) */
-.stApp, .stApp h1, .stApp h2, .st.App h3 {
-    color: #FFFFFF !important;
-}
-
-/* Títulos y etiquetas usan el color secundario (30% Secundario) */
-h1, h2, h3, .stFileUploader label, .uploadedFileName {
-    color: #219ebc !important;
-}
-
-/* Estilo de TODOS los botones y links-como-botones (10% Acento) */
+/* Ajuste para que el texto del botón sea oscuro y legible sobre el fondo amarillo */
 .stButton>button, .stDownloadButton>a, .stFileUploader>div>button {
     color: #023047 !important; /* Texto oscuro para contraste */
-    background-color: #ffb703 !important; /* Acento: Amarillo */
-    border-radius: 8px !important;
-    border: 2px solid #ffb703 !important;
-    padding: 12px 24px !important;
-    font-weight: bold !important;
-    transition: all 0.3s ease !important;
-    text-decoration: none !important; /* Para el botón de descarga que es un link */
-    display: inline-flex !important; /* Alineación correcta */
-    align-items: center !important;
-    justify-content: center !important;
 }
 
-.stButton>button:hover, .stDownloadButton>a:hover, .stFileUploader>div>button:hover {
-    background-color: #fb8500 !important; /* Acento secundario: Naranja */
-    border-color: #fb8500 !important;
-    color: #FFFFFF !important;
-}
-
-/* Estilo del área de texto de la transcripción (CORREGIDO) */
+/* Estilo del área de texto de la transcripción */
 .stTextArea textarea {
-    background-color: #0A3F5B !important; /* Un tono ligeramente más claro que el fondo */
-    color: #FFFFFF !important;
-    border-radius: 8px !important;
     border: 1px solid #219ebc !important; /* Borde con color secundario */
-    font-size: 16px !important;
 }
 
 /* Ocultar el menú de hamburguesa de Streamlit y el footer */
